@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 import operator
 import os
+import re
 
 # module level variables ##########################################################################
 MIN_CONTOUR_AREA = 100
@@ -61,7 +62,7 @@ def main():
 
     kNearest.train(npaFlattenedImages, cv2.ml.ROW_SAMPLE, npaClassifications)
 
-    imgTestingNumbers = cv2.imread("testDatum7.png")          # read in testing numbers image
+    imgTestingNumbers = cv2.imread("TestBilder/testDatum3.png")          # read in testing numbers image
 
     if imgTestingNumbers is None:                           # if image was not read successfully
         print "error: image not read from file \n\n"        # print error message to std out
@@ -129,8 +130,11 @@ def main():
         strFinalString = strFinalString + strCurrentChar            # append current char to full string
     # end for
 
+    #post-processing
+    regex = re.compile(r"\b\d{1,2}[-/:]\d{1,2}[-/:]\d{4}\b")
+    print regex.findall(strFinalString)
+    #if
     print "\n" + strFinalString + "\n"                  # show the full string
-
     cv2.imshow("imgTestingNumbers", imgTestingNumbers)      # show input image with green boxes drawn around found digits
     cv2.waitKey(0)                                          # wait for user key press
 
