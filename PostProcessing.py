@@ -17,7 +17,7 @@ def isDate(str):
 
 
 def testIsDate():
-    dates = ["10/03/2016", "10.03.2016", "10.03.16", "03-17"]
+    dates = ["10/03/2016", "10.03.2016", "10.03.16", "03-17", "32-13-14"]
     for date in dates:
         isDate(date)
 
