@@ -14,7 +14,7 @@ RESIZED_IMAGE_HEIGHT = 30
 ###################################################################################################
 def main():
     #imgTrainingNumbers = cv2.imread("training_chars.png")            # read in training numbers image
-    imgTrainingNumbers = cv2.imread("DatumVorlage.png")            # read in training numbers image
+    imgTrainingNumbers = cv2.imread("TrainingsBilder/DatumVorlage.PNG")            # read in training numbers image
 
     if imgTrainingNumbers is None:                          # if image was not read successfully
         print "error: image not read from file \n\n"        # print error message to std out
@@ -93,8 +93,8 @@ ord('/'), ord('.')]
 
     print "\n\ntraining complete !!\n"
 
-    np.savetxt("classifications.txt", npaClassifications)           # write flattened images to file
-    np.savetxt("flattened_images.txt", npaFlattenedImages)          #
+    np.savetxt("classificationsDatumVorlage.txt", npaClassifications)           # write flattened images to file
+    np.savetxt("flattened_imagesDatumVorlage.txt", npaFlattenedImages)          #
 
     cv2.destroyAllWindows()             # remove windows from memory
 
